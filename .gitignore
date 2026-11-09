@@ -1,0 +1,20 @@
+# Antigravity & Studio local files
+project.local.yaml
+.gemini/local/
+*.tmp
+*.log
+
+# Engine caches
+.godot/
+.import/
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+MemoryCaptures/
+Intermediate/
+Saved/
+DerivedDataCache/
+Binaries/

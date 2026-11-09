@@ -1,0 +1,70 @@
+{
+  "studio-hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-commit.sh",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-push.sh",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "write_to_file|replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-registry.sh",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-write.sh",
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "view_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-read.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-assets.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash .agents/hooks/validate-skill-change.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "type": "command",
+        "command": "bash .agents/hooks/session-stop.sh",
+        "timeout": 10
+      }
+    ]
+  }
+}

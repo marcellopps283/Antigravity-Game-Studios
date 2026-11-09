@@ -1,0 +1,12 @@
+# Antigravity Game Studios Project Configuration
+# Single source of truth for engine, modes, and studio settings.
+
+schema_version: 1
+
+framework:
+  name: Antigravity Game Studios
+  version: 1.0.0
+  last_upgraded: 2026-11-08
+  platform: antigravity
+
+# Configure your project with `/start` or `/setup-engine`
